@@ -29,7 +29,7 @@ io.on("connection", (socket) => {
     console.log("User connected", socket.id);
     socket.on("message", (data) => {
         console.log(data);
-        io.emit("receive-message", data);
+        io.to(data.room).emit("receive-message", data);
       
     });
     // socket.emit(`welcome", "welcome to the server${socket.id}`);
